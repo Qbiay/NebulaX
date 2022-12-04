@@ -1,0 +1,763 @@
+local Library = loadstring(game: HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("NebulaX v2.61", "DarkTheme")
+
+--MAIN
+local Main = Window:NewTab("Universal")
+local MainSection = Main:NewSection("Main")
+
+
+MainSection: NewButton("InfYield", "Admin GUI", function()
+    loadstring(game: HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+    MainSection: NewButton("Fates Admin", "Admin GUI", function()
+    loadstring(game: HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
+
+MainSection: NewButton("E to tp", "tp", function()
+    --options
+_G.TP_Key = "e"
+
+--script
+_G.THEKEY = _G.TP_Key:lower()
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+
+mouse.KeyDown:connect(function(key)
+	if key == _G.THEKEY then
+		if mouse.Target then
+		hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+		end
+	end
+end)
+end)
+
+MainSection: NewButton("FullBright", "brighter lol", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/06iG6YkU", true))()
+end)
+
+    MainSection: NewButton("AntiFling", "just an antifling lol", function()
+    -- // Constants \\ --
+--[Services]--
+local Services = setmetatable({ }, {
+    __index = function(Self, Index)
+local NewService = game.GetService(game, Index)
+if NewService then
+Self[Index] = NewService
+end
+return NewService
+end})
+
+-- [LocalPlayer]--
+local LocalPlayer = Services.Players.LocalPlayer
+
+-- // Functions \\ --
+local function PlayerAdded(Player)
+   local Detected = false
+   local Character;
+local PrimaryPart;
+
+local function CharacterAdded(NewCharacter)
+       Character = NewCharacter
+       repeat
+           wait()
+           PrimaryPart = NewCharacter:FindFirstChild("HumanoidRootPart")
+       until PrimaryPart
+       Detected = false
+   end
+
+   CharacterAdded(Player.Character or Player.CharacterAdded:Wait())
+   Player.CharacterAdded:Connect(CharacterAdded)
+   Services.RunService.Heartbeat:Connect(function()
+       if (Character and Character:IsDescendantOf(workspace)) and(PrimaryPart and PrimaryPart: IsDescendantOf(Character)) then
+           if PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 or PrimaryPart.AssemblyLinearVelocity.Magnitude > 100 then
+               if Detected == false then
+                   game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "Fling Exploit detected, Player: "..tostring(Player);
+    Color = Color3.fromRGB(255, 200, 0);
+})
+               end
+               Detected = true
+               for i, v in ipairs(Character:GetDescendants()) do
+    if v:IsA("BasePart") then
+        v.CanCollide = false
+                       v.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+                       v.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+                       v.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
+                   end
+               end
+               PrimaryPart.CanCollide = false
+               PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+               PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+               PrimaryPart.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
+           end
+       end
+   end)
+end
+
+-- // Event Listeners \\ --
+for i, v in ipairs(Services.Players:GetPlayers()) do
+        if v ~= LocalPlayer then
+       PlayerAdded(v)
+   end
+end
+Services.Players.PlayerAdded:Connect(PlayerAdded)
+
+local LastPosition = nil
+Services.RunService.Heartbeat:Connect(function()
+   pcall(function()
+       local PrimaryPart = LocalPlayer.Character.PrimaryPart
+       if PrimaryPart.AssemblyLinearVelocity.Magnitude > 250 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 250 then
+           PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+           PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+           PrimaryPart.CFrame = LastPosition
+
+           game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "You were flung. Neutralizing velocity.";
+    Color = Color3.fromRGB(255, 0, 0);
+})
+       elseif PrimaryPart.AssemblyLinearVelocity.Magnitude< 50 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 then
+           LastPosition = PrimaryPart.CFrame
+       end
+   end)
+end)
+end)
+
+MainSection: NewButton("OwlHub", "Aimbot and esp for most games.", function()
+loadstring(game: HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+end)
+
+ -- GAMES
+local Games = Window:NewTab("Games")
+local GamesSection = Games:NewSection("Games stuff")
+
+GamesSection: NewButton("No scope arcade", "aimbot etc", function()
+    loadstring(game: HttpGet("https://raw.githubusercontent.com/Kitzoon/Rogue-Hub/main/Main.lua", true))()
+end)
+
+GamesSection: NewButton("Combat Warriors", "bunch of stuff", function()
+    loadstring(game: HttpGet("https://raw.githubusercontent.com/SussyImposterRed/Scripts/main/NOVA_HUB_SOURCE"))()
+end)
+
+GamesSection: NewButton("Phantom Forces", "bunch of stuff", function()
+    -- Settings--
+
+
+local settings = {
+
+    fillcolor = Color3.fromRGB(255, 255, 255);
+    filltransparency = .75;
+
+    outlinecolor = Color3.fromRGB(255, 255, 255);
+    outlinetransparency = 0;
+
+}
+
+--Script--
+
+
+local plr = game:service 'Players'.LocalPlayer
+local highlights = Instance.new('Folder', game: service'CoreGui')
+
+
+local function addhighlight(object)
+   local highlight = Instance.new('Highlight', highlights)
+   highlight.Adornee = object
+
+
+   highlight.FillColor = settings.fillcolor
+   highlight.FillTransparency = settings.filltransparency
+
+
+   highlight.OutlineColor = settings.outlinecolor
+   highlight.OutlineTransparency = settings.outlinetransparency
+
+
+   highlight.Adornee.Changed:Connect(function()
+       if not highlight.Adornee or not highlight.Adornee.Parent then
+           highlight:Destroy()
+       end
+   end)
+
+
+   return highlight
+end
+
+local function addtoplayer(object)
+   if object:IsA 'Model' and object.Name == 'Player' and object.Parent.Name ~= tostring(plr.TeamColor) then
+       addhighlight(object)
+   end
+end
+ 
+for i, v in pairs(workspace.Players:GetDescendants()) do
+    addtoplayer(v)
+end
+
+
+workspace.Players.DescendantAdded:Connect(function(v)
+   addtoplayer(v)
+end)
+
+-- For head hitbox
+ 
+Size = 8 -- Setting higher than 8 or so will screw with the server hit detection and prevent your guns from damaging people. 8 is still easy to "rage" with. I recommend 2-5 if you want to look legit.
+Transparency = 0.5 -- Leave it at 0.5 if you want the heads to be visible. Set to 1 to make them invisible.
+ 
+game:GetService("RunService").Stepped:Connect(function()
+for i, v in next, workspace.Players:GetDescendants() do
+        if v:FindFirstChild("Head") and not v:FindFirstChildWhichIsA("MeshPart") then
+        sethiddenproperty(v.Head, "Massless", true)
+v.Head.CanCollide = false
+v.Head.Transparency = Transparency
+if v.Head.Size ~= Vector3.new (Size, Size, Size) and v.Head.Mesh.Scale ~= Vector3.new (Size, Size, Size) then
+v.Head.Size = Vector3.new (Size, Size, Size)
+v.Head.Mesh.Scale = Vector3.new (Size, Size, Size)
+end
+if v.Head.Parent.Parent.Name == "Bright blue" then
+v.Head.BrickColor = BrickColor.new("Bright blue")
+end
+if v.Head.Parent.Parent.Name == "Bright orange" then
+v.Head.BrickColor = BrickColor.new("Bright orange")
+end
+end
+end
+end)
+ 
+while wait() do
+        for i, v in next, workspace.Ignore.DeadBody:GetChildren() do
+            v: Destroy()
+        end
+end
+------------------------------------------------------------------------For torso
+ 
+Size = 8 -- Setting higher than 8 or so will screw with the server hit detection and prevent your guns from damaging people. 8 is still easy to "rage" with. I recommend 2-5 if you want to look legit.
+Transparency = 0.5 -- Leave it at 0.5 if you want the torsos/left legs to be visible. Set to 1 to make them invisible.
+ 
+game:GetService("RunService").Stepped:Connect(function()
+for i, v in next, workspace.Players:GetDescendants() do
+        if v:FindFirstChild("Left Leg") and not v:FindFirstChildWhichIsA("MeshPart") then
+        sethiddenproperty(v["Left Leg"], "Massless", true)
+v["Left Leg"].CanCollide = false
+v["Left Leg"].Transparency = Transparency
+if v["Left Leg"].Size ~= Vector3.new (Size, Size, Size) and v["Left Leg"].Mesh.Scale ~= Vector3.new (Size, Size, Size) then
+v["Left Leg"].Size = Vector3.new (Size, Size, Size)
+v["Left Leg"].Mesh.Scale = Vector3.new (Size, Size, Size)
+end
+if v["Left Leg"].Parent.Parent.Name == "Bright blue" then
+v["Left Leg"].BrickColor = BrickColor.new("Bright blue")
+end
+if v["Left Leg"].Parent.Parent.Name == "Bright orange" then
+v["Left Leg"].BrickColor = BrickColor.new("Bright orange")
+end
+end
+end
+end)
+ 
+while wait() do
+        for i, v in next, workspace.Ignore.DeadBody:GetChildren() do
+            v: Destroy()
+        end
+end
+end)
+
+GamesSection: NewButton("BloxFruits", "bunch of stuff", function()
+    loadstring(game: HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+end)
+
+GamesSection: NewButton("+1 jump every second", "bunch of stuff", function()
+    while true do
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(31498.3, 78449.3, 8167.25)
+    wait(10)
+end
+end)
+
+GamesSection: NewButton("Build a boat for treasure", "bunch of stuff", function()
+    --// Services
+local players = game:GetService("Players")
+
+--// Workspace
+local stages = workspace:WaitForChild("BoatStages"):WaitForChild("NormalStages")
+local penguin, gold = workspace:WaitForChild("ChangeCharacter"), workspace: WaitForChild("ClaimRiverResultsGold")
+
+--// Other
+local client = players.LocalPlayer
+
+--// Main
+---------
+_G.Busy = true
+while _G.Busy do
+        local bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.Velocity = Vector3.new(0, -4, 0)
+    bodyVelocity.Parent = client.Character.HumanoidRootPart
+
+    for i = 1, 9 do
+        if not client.Character or not client.Character:FindFirstChild("Humanoid") then
+            repeat wait() until client.Character and client.Character:FindFirstChild("Humanoid")
+        end
+
+        client.Character.HumanoidRootPart.CFrame = stages["CaveStage"..i].DarknessPart.CFrame wait(0.1)
+
+        if not _G.Busy then
+            client.Character.Humanoid.Health = 0
+            exit(0)
+        end
+
+        if i == 1 then
+            wait(4)
+        else
+    wait(2)
+        end
+
+        gold:FireServer()
+    end
+
+    penguin:FireServer("PenguinCharacter")
+    client.Character:Remove()
+
+
+    repeat wait()
+    until client.Character and client.Character:FindFirstChild("HumanoidRootPart")
+
+end
+---------
+end)
+
+GamesSection: NewButton("Tower Of Hell", "auto win etc", function()
+    loadstring(game: HttpGet('https://pastebin.com/raw/BbVHjH56'))()
+end)
+
+GamesSection: NewButton("Work at a pizza place [OLD]", "delete stuff ig", function()
+    loadstring(game: HttpGet(('https://raw.githubusercontent.com/Cutsences/workatapizzaplace/main/script.lua')))()
+end)
+
+GamesSection: NewButton("Arsenal", "aimbot", function()
+    loadstring(game: HttpGet("https://raw.githubusercontent.com/KeoneGithub/KeoneGithub/main/Arsenal", true))()
+end)
+
+GamesSection: NewButton("Bubble Gum Simulator", "ALL SORTS", function()
+    local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Bubble Gum Simulator",
+	LoadingTitle = "Made By fortunatesouls#8803 UwU",
+	LoadingSubtitle = "fortunatesouls#8803",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "BGS"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Sirius Hub",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/sirius)",
+		FileName = "SiriusKey",
+		SaveKey = false,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "Hello"
+	}
+})
+
+Rayfield:Notify({
+    Title = "Notification",
+    Content = "Script Loaded",
+    Duration = math.huge,
+    Image = 0,
+    Actions = { -- Notification Buttons
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("Thanks For Using")
+            end
+		},
+	},
+})
+
+-- // MAIN SECTION \\
+local Tab = Window:CreateTab("Main")
+local Section = Tab:CreateSection("Main")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Snowflake Autofarm",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoFarm = true
+		    while getgenv().autoFarm == true do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(37.5121346, 271.314178, 1483.34351, 0.519202173, 1.27605961e-08, -0.854651451, 3.80401346e-08, 1, 3.80402057e-08, 0.854651451, -5.22616155e-08, 0.519202173)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(40.116436, 271.566315, 1483.64429, 0.559021115, -1.86177494e-05, -0.829153419, -1.36960227e-06, 1, -2.33773208e-05, 0.829153419, 1.42040262e-05, 0.559021115)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(39.7298393, 271.315582, 1486.35632, 0.578804731, 5.30380788e-08, -0.815466166, -3.80399925e-08, 1, 3.80400245e-08, 0.815466166, 9.0025809e-09, 0.578804731)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(40.5886002, 271.316071, 1487.46118, 0.55816257, -1.03305693e-08, -0.829731584, -3.80400849e-08, 1, -3.80401595e-08, 0.829731584, 5.27956558e-08, 0.55816257)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(41.6921463, 271.316559, 1488.51709, 0.581975281, 8.7961487e-09, -0.813206494, 3.80401843e-08, 1, 3.80402732e-08, 0.813206494, -5.30730233e-08, 0.581975281)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.3999863, 271.31723, 1488.8717, 0.572694719, 9.39879463e-09, -0.819768727, 3.80401843e-08, 1, 3.80402518e-08, 0.819768727, -5.29696038e-08, 0.572694719)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(36.9076538, 271.316254, 1486.74243, 0.574148178, -9.30472766e-09, -0.818751395, -3.80402199e-08, 1, -3.80401808e-08, 0.818751395, 5.29861843e-08, 0.574148178)
+    wait(0.8)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(35.9316063, 271.315582, 1485.35071, 0.57415545, 9.30426225e-09, -0.818746269, 3.80401382e-08, 1, 3.8040131e-08, 0.818746269, -5.29861701e-08, 0.57415545)
+end
+
+    else
+        getgenv().autoFarm = false
+end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Blow",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoBlow = true
+		    while getgenv().autoBlow == true do
+		        wait(0.001)
+local args = {
+    [1] = "BlowBubble"
+}
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+end
+
+    else
+        getgenv().autoBlow = false
+end
+	end,
+})
+
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Sell",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoSell = true
+		    while getgenv().autoSell == true do
+		        wait(0.001)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-146.899704, 45.8002815, -155.838211, 0.472316355, -5.14966416e-08, -0.881429136, 3.80401559e-08, 1, -3.80401026e-08, 0.881429136, -1.55627369e-08, 0.472316355)
+local args = {
+    [1] = "SellBubble",
+    [2] = "Sell"
+}
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+end
+
+    else
+        getgenv().autoSell = false
+end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Spin Prize Wheel",
+	Callback = function()
+local args = {
+    [1] = "SpinToWin"
+}
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Teleport Event World",
+	Callback = function()
+local args = {
+    [1] = "Teleport",
+    [2] = "EventSpawn"
+}
+
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+
+	end,
+})
+
+
+-- // Local-Player SECTION \\
+local Tab = Window:CreateTab("Local Player")
+local Section = Tab:CreateSection("Local Player")
+
+local Slider = Tab:CreateSlider({
+	Name = "Walkspeed",
+	Range = {16, 170},
+	Increment = 10,
+	Suffix = "Walkspeed",
+	CurrentValue = 16,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Jumppower",
+	Range = {50, 350},
+	Increment = 10,
+	Suffix = "Jumppower",
+	CurrentValue = 50,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Field Of View",
+	Range = {70, 120},
+	Increment = 10,
+	Suffix = "Field Of View",
+	CurrentValue = 70,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Gravity",
+	Range = {1, 400},
+	Increment = 10,
+	Suffix = "Gravity",
+	CurrentValue = 16,
+	Flag = "Slider1",
+	Callback = function(Value)
+		game.Workspace.Gravity = Value
+	end,
+})
+
+-- // Auto Hatching SECTION \\
+local Tab = Window:CreateTab("Auto Hatching")
+local Section = Tab:CreateSection("Auto Hatching")
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Common Egg",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoHatch = true
+		    while getgenv().autoHatch == true do
+		        wait(0.001)
+local args = {
+    [1] = "PurchaseEgg",
+    [2] = "Common Egg"
+}
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+end
+
+    else
+        getgenv().autoHatch = false
+end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Spotted Egg",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoHatch = true
+		    while getgenv().autoHatch == true do
+		        wait(0.001)
+local args = {
+    [1] = "PurchaseEgg",
+    [2] = "Spotted Egg"
+}
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+end
+
+    else
+        getgenv().autoHatch = false
+end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Hatch Spikey Egg",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if Value then
+		    getgenv().autoHatch = true
+		    while getgenv().autoHatch == true do
+		        wait(0.001)
+local args = {
+    [1] = "PurchaseEgg",
+    [2] = "Spikey Egg"
+}
+game:GetService("ReplicatedStorage").NetworkRemoteEvent:FireServer(unpack(args))
+end
+
+    else
+        getgenv().autoHatch = false
+end
+	end,
+})
+-- // Credits SECTION \\
+local Tab = Window:CreateTab("Credits")
+local Section = Tab:CreateSection("Credits")
+
+local Label = Tab:CreateLabel("Made By fortunatesouls#8803")
+local Label = Tab:CreateLabel("UI Libary - Rayfield")
+end)
+
+GamesSection: NewButton("Football Fusion 2", "idk tbf", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/SlimLegoHacks/Scripts/main/FootballFusion.lua')))()
+end)
+
+GamesSection: NewButton("Adopt me (GINGERBREAD AUTOFARM)", "idk tbf", function()
+    getgenv().Start = true
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local GingerbreadMarkers = ReplicatedStorage.Resources.IceSkating.GingerbreadMarkers
+
+
+for i, v in pairs(debug.getupvalue(require(ReplicatedStorage.Fsys).load("RouterClient").init, 4)) do
+   v.Name = i
+end
+spawn(function()
+   while wait() and Start do
+       pcall(function()
+           for i,v in pairs(GingerbreadMarkers:GetChildren()) do
+               if v:IsA("BasePart") then
+                   ReplicatedStorage.API:FindFirstChild("WinterEventAPI/PickUpGingerbread"):InvokeServer(v.Name)
+               end
+           end
+           ReplicatedStorage.API:FindFirstChild("WinterEventAPI/RedeemPendingGingerbread"):FireServer()
+           ReplicatedStorage.API:FindFirstChild("WinterEventAPI/SubmitIceSkatingTime"):FireServer(0)
+       end)
+   end
+end)
+end)
+
+GamesSection: NewButton("Forgotten Memories", "idk tbf", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/lolpoppyus/Roblox-Lua/master/ForgottenMemories.lua"))()
+end)
+
+GamesSection: NewButton("Making scam calls to save ur bestfriend", "idk tbf", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Xythab/exploits/main/Scam.lua'))()
+end)
+
+GamesSection: NewButton("Rush point", "aimbot", function()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/Wheeleee/AIMWARE/main/Startup")()
+end)
+
+GamesSection: NewButton("Bedwars", "lots of stuff", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end)
+
+GamesSection: NewButton("Legends of Speed", "lots of stuff", function()
+    loadstring(game:HttpGet('https://scripts.luawl.com/13665/los.lua'))()
+end)
+
+GamesSection: NewButton("The Wild west aimbot", "aimbot", function()
+    --FE Simple AimLock Script | Released Nov 2021 | Working.
+local Area = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local MyCharacter = LocalPlayer.Character
+local MyRoot = MyCharacter:FindFirstChild("HumanoidRootPart")
+local MyHumanoid = MyCharacter:FindFirstChild("Humanoid")
+local Mouse = LocalPlayer:GetMouse()
+local MyView = Area.CurrentCamera
+local MyTeamColor = LocalPlayer.TeamColor
+local HoldingM2 = false
+local Active = false
+local Lock = false
+local Epitaph = .187 ---Note: The Bigger The Number, The More Prediction.
+local HeadOffset = Vector3.new(0, .1, 0)
+
+_G.TeamCheck = false
+_G.AimPart = "HumanoidRootPart"
+_G.Sensitivity = 0
+_G.CircleSides = 64
+_G.CircleColor = Color3.fromRGB(255, 0, 130)
+_G.CircleTransparency = 0
+_G.CircleRadius = 200
+_G.CircleFilled = false
+_G.CircleVisible = true
+_G.CircleThickness = 1
+
+local FOVCircle = Drawing.new("Circle")
+FOVCircle.Position = Vector2.new(MyView.ViewportSize.X / 2, MyView.ViewportSize.Y / 2)
+FOVCircle.Radius = _G.CircleRadius
+FOVCircle.Filled = _G.CircleFilled
+FOVCircle.Color = _G.CircleColor
+FOVCircle.Visible = _G.CircleVisible
+FOVCircle.Transparency = _G.CircleTransparency
+FOVCircle.NumSides = _G.CircleSides
+FOVCircle.Thickness = _G.CircleThickness
+
+local function CursorLock()
+	UIS.MouseBehavior = Enum.MouseBehavior.LockCenter
+end
+local function UnLockCursor()
+	HoldingM2 = false Active = false Lock = false 
+	UIS.MouseBehavior = Enum.MouseBehavior.Default
+end
+function FindNearestPlayer()
+	local dist = math.huge
+	local Target = nil
+	for _, v in pairs(Players:GetPlayers()) do
+		if v ~= LocalPlayer and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("Humanoid").Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") and v then
+			local TheirCharacter = v.Character
+			local CharacterRoot, Visible = MyView:WorldToViewportPoint(TheirCharacter[_G.AimPart].Position)
+			if Visible then
+				local RealMag = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(CharacterRoot.X, CharacterRoot.Y)).Magnitude
+				if RealMag < dist and RealMag < FOVCircle.Radius then
+					dist = RealMag
+					Target = TheirCharacter
+				end
+			end
+		end
+	end
+	return Target
+end
+
+UIS.InputBegan:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+		HoldingM2 = true
+		Active = true
+		Lock = true
+		if Active then
+        	local The_Enemy = FindNearestPlayer()
+			while HoldingM2 do task.wait(.000001)
+				if Lock and The_Enemy ~= nil then
+					local Future = The_Enemy.HumanoidRootPart.CFrame + (The_Enemy.HumanoidRootPart.Velocity * Epitaph + HeadOffset)
+					MyView.CFrame = CFrame.lookAt(MyView.CFrame.Position, Future.Position)
+					CursorLock()
+				end
+			end
+		end
+	end
+end)
+UIS.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+		UnLockCursor()
+	end
+end)
+game.StarterGui:SetCore("SendNotification", {Title = "Working.", Text = "Success, Script Loaded.", Duration = 4,})
+end)
+
+GamesSection: NewButton("Planet Simulator", "lots of stuff", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/MineSucht/rblxscrpts/planetsimulator/source.lua')))()
+end)
+
+--Credits
+local Credits = Window:NewTab("Credits")
+local CreditsSection = Credits:NewSection("Credits to Barney -- Barney#3785")
