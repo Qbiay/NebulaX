@@ -11,8 +11,12 @@ MainSection: NewButton("InfYield", "Admin GUI", function()
 end)
 
 
-    MainSection: NewButton("Fates Admin", "Admin GUI", function()
+MainSection: NewButton("Fates Admin", "Admin GUI", function()
     loadstring(game: HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
+
+MainSection: NewButton("chat bypass (dont complain if u get banned)", "Admin GUI", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/x114/RobloxScripts/main/FullChatBypass"))()
 end)
 
 MainSection: NewButton("chatspy", "see peoples chats", function()
