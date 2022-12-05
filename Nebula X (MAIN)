@@ -1297,6 +1297,525 @@ GamesSection: NewButton("mega easy obby", "lots of stuff", function()
     loadstring(game:HttpGet("https://paste-bin.xyz/raw/969087"))()
 end)
 
+	GamesSection: NewButton("Armored Patrol", "lots of stuff", function()
+    -- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Hi1 = Instance.new("Frame")
+local GuiName = Instance.new("TextLabel")
+local Hi2 = Instance.new("Frame")
+local Credit = Instance.new("TextLabel")
+local RedBaseTp = Instance.new("TextButton")
+local RedBaseRoofTp = Instance.new("TextButton")
+local BlueBaseTp = Instance.new("TextButton")
+local BlueBaseRoofTp = Instance.new("TextButton")
+local WalkSpeedScript = Instance.new("TextButton")
+local Flyscript = Instance.new("TextButton")
+local NormalWalkSpeed = Instance.new("TextButton")
+local Red1 = Instance.new("Frame")
+local RedTeam = Instance.new("TextLabel")
+local Blue1 = Instance.new("Frame")
+local BlueTeam = Instance.new("TextLabel")
+local LocalPlayerMisc1 = Instance.new("Frame")
+local LocalPlayer = Instance.new("TextLabel")
+local OtherTps = Instance.new("Frame")
+local OtherTps_2 = Instance.new("TextLabel")
+local AlphaTp = Instance.new("TextButton")
+local BravoTp = Instance.new("TextButton")
+local CharlieTp = Instance.new("TextButton")
+local ExitButton = Instance.new("TextButton")
+local OpenFrame = Instance.new("Frame")
+local Open = Instance.new("TextButton")
+--Properties:
+ScreenGui.Parent = game.CoreGui
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.Active = true
+Main.BackgroundColor3 = Color3.new(0, 0, 0)
+Main.BackgroundTransparency = 0.20000000298023
+Main.Position = UDim2.new(0.372185528, 0, 0.103669062, 0)
+Main.Size = UDim2.new(0, 652, 0, 396)
+Main.Visible = false
+Main.Draggable = true
+
+Hi1.Name = "Hi1"
+Hi1.Parent = Main
+Hi1.BackgroundColor3 = Color3.new(0, 0.0352941, 0.74902)
+Hi1.BorderColor3 = Color3.new(0, 0.054902, 0.87451)
+Hi1.BorderSizePixel = 0
+Hi1.Position = UDim2.new(-0.00330432365, 0, -0.0026376897, 0)
+Hi1.Size = UDim2.new(0, 654, 0, 40)
+
+GuiName.Name = "Gui Name"
+GuiName.Parent = Hi1
+GuiName.BackgroundColor3 = Color3.new(1, 1, 1)
+GuiName.BackgroundTransparency = 1
+GuiName.BorderSizePixel = 0
+GuiName.Position = UDim2.new(0.000360219768, 0, 0, 0)
+GuiName.Size = UDim2.new(0, 651, 0, 39)
+GuiName.Font = Enum.Font.Cartoon
+GuiName.Text = "Armored Patrol v9.5  GUI v.1.0.0"
+GuiName.TextColor3 = Color3.new(1, 1, 1)
+GuiName.TextSize = 20
+GuiName.TextWrapped = true
+
+Hi2.Name = "Hi2"
+Hi2.Parent = Main
+Hi2.BackgroundColor3 = Color3.new(0, 0.0352941, 0.74902)
+Hi2.BorderColor3 = Color3.new(0, 0.054902, 0.87451)
+Hi2.BorderSizePixel = 0
+Hi2.Position = UDim2.new(-0.00166716916, 0, 0.907947242, 0)
+Hi2.Size = UDim2.new(0, 653, 0, 40)
+
+Credit.Name = "Credit"
+Credit.Parent = Hi2
+Credit.BackgroundColor3 = Color3.new(1, 1, 1)
+Credit.BackgroundTransparency = 1
+Credit.BorderSizePixel = 0
+Credit.Position = UDim2.new(-0.00163458323, 0, -0.0267578121, 0)
+Credit.Size = UDim2.new(0, 653, 0, 41)
+Credit.Font = Enum.Font.Cartoon
+Credit.Text = "Made by Toxic#8476 [Enjoy!! :D] (STILL WIP)"
+Credit.TextColor3 = Color3.new(1, 1, 1)
+Credit.TextSize = 16
+Credit.TextWrapped = true
+
+RedBaseTp.Name = "Red Base Tp"
+RedBaseTp.Parent = Main
+RedBaseTp.BackgroundColor3 = Color3.new(0.784314, 0, 0)
+RedBaseTp.BorderSizePixel = 0
+RedBaseTp.Position = UDim2.new(0.0116356825, 0, 0.237544239, 0)
+RedBaseTp.Size = UDim2.new(0, 165, 0, 38)
+RedBaseTp.Font = Enum.Font.Cartoon
+RedBaseTp.Text = "Red Base Tp"
+RedBaseTp.TextColor3 = Color3.new(1, 1, 1)
+RedBaseTp.TextSize = 18
+RedBaseTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(189.769943, 103.899895, 178.279953)
+end)
+
+RedBaseRoofTp.Name = "Red Base Roof Tp"
+RedBaseRoofTp.Parent = Main
+RedBaseRoofTp.BackgroundColor3 = Color3.new(0.784314, 0, 0)
+RedBaseRoofTp.BorderSizePixel = 0
+RedBaseRoofTp.Position = UDim2.new(0.0116356825, 0, 0.36939472, 0)
+RedBaseRoofTp.Size = UDim2.new(0, 165, 0, 38)
+RedBaseRoofTp.Font = Enum.Font.Cartoon
+RedBaseRoofTp.Text = "Red Base Roof Tp"
+RedBaseRoofTp.TextColor3 = Color3.new(1, 1, 1)
+RedBaseRoofTp.TextSize = 18
+RedBaseRoofTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(264.14679, 183.90004, 193.174545)
+end)
+
+BlueBaseTp.Name = "Blue Base Tp"
+BlueBaseTp.Parent = Main
+BlueBaseTp.BackgroundColor3 = Color3.new(0.0431373, 0.0784314, 0.784314)
+BlueBaseTp.BorderSizePixel = 0
+BlueBaseTp.Position = UDim2.new(0.373393953, 0, 0.237544239, 0)
+BlueBaseTp.Size = UDim2.new(0, 165, 0, 38)
+BlueBaseTp.Font = Enum.Font.Cartoon
+BlueBaseTp.Text = "Blue Base Tp"
+BlueBaseTp.TextColor3 = Color3.new(1, 1, 1)
+BlueBaseTp.TextSize = 18
+BlueBaseTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2811.38281, 103.899506, 2825.04932)
+end)
+
+BlueBaseRoofTp.Name = "Blue Base Roof Tp"
+BlueBaseRoofTp.Parent = Main
+BlueBaseRoofTp.BackgroundColor3 = Color3.new(0.0431373, 0.0784314, 0.784314)
+BlueBaseRoofTp.BorderSizePixel = 0
+BlueBaseRoofTp.Position = UDim2.new(0.373283327, 0, 0.36939472, 0)
+BlueBaseRoofTp.Size = UDim2.new(0, 165, 0, 38)
+BlueBaseRoofTp.Font = Enum.Font.Cartoon
+BlueBaseRoofTp.Text = "Blue Base Roof Tp"
+BlueBaseRoofTp.TextColor3 = Color3.new(1, 1, 1)
+BlueBaseRoofTp.TextSize = 18
+BlueBaseRoofTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2736.55298, 183.900299, 2808.66406)
+end)
+
+WalkSpeedScript.Name = "WalkSpeed Script"
+WalkSpeedScript.Parent = Main
+WalkSpeedScript.BackgroundColor3 = Color3.new(0.666667, 0.054902, 0.635294)
+WalkSpeedScript.BorderSizePixel = 0
+WalkSpeedScript.Position = UDim2.new(0.723429501, 0, 0.235341623, 0)
+WalkSpeedScript.Size = UDim2.new(0, 84, 0, 38)
+WalkSpeedScript.Font = Enum.Font.Cartoon
+WalkSpeedScript.Text = "Speed"
+WalkSpeedScript.TextColor3 = Color3.new(1, 1, 1)
+WalkSpeedScript.TextSize = 18
+WalkSpeedScript.MouseButton1Down:connect(function()
+while wait(0.1)do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 200
+end
+end)
+
+
+Flyscript.Name = "Fly script"
+Flyscript.Parent = Main
+Flyscript.BackgroundColor3 = Color3.new(0.666667, 0.054902, 0.635294)
+Flyscript.BorderSizePixel = 0
+Flyscript.Position = UDim2.new(0.735699475, 0, 0.368803889, 0)
+Flyscript.Size = UDim2.new(0, 165, 0, 38)
+Flyscript.Font = Enum.Font.Cartoon
+Flyscript.Text = "Fly"
+Flyscript.TextColor3 = Color3.new(1, 1, 1)
+Flyscript.TextSize = 18
+Flyscript.MouseButton1Down:connect(function()
+	repeat wait()
+    until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+local mouse = game.Players.LocalPlayer:GetMouse()
+repeat wait() until mouse
+local plr = game.Players.LocalPlayer
+local torso = plr.Character.Head
+local flying = false
+local deb = true
+local ctrl = {f = 0, b = 0, l = 0, r = 0}
+local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+local maxspeed = 400
+local speed = 500
+ 
+function Fly()
+local bg = Instance.new("BodyGyro", torso)
+bg.P = 9e4
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+bg.cframe = torso.CFrame
+local bv = Instance.new("BodyVelocity", torso)
+bv.velocity = Vector3.new(0,0.1,0)
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+repeat wait()
+plr.Character.Humanoid.PlatformStand = true
+if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+speed = speed+.5+(speed/maxspeed)
+if speed > maxspeed then
+speed = maxspeed
+end
+elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+speed = speed-1
+if speed < 0 then
+speed = 0
+end
+end
+if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+else
+bv.velocity = Vector3.new(0,0.1,0)
+end
+bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+until not flying
+ctrl = {f = 0, b = 0, l = 0, r = 0}
+lastctrl = {f = 0, b = 0, l = 0, r = 0}
+speed = 0
+bg:Destroy()
+bv:Destroy()
+plr.Character.Humanoid.PlatformStand = false
+end
+mouse.KeyDown:connect(function(key)
+if key:lower() == "e" then
+if flying then flying = false
+else
+flying = true
+Fly()
+end
+elseif key:lower() == "w" then
+ctrl.f = 1
+elseif key:lower() == "s" then
+ctrl.b = -1
+elseif key:lower() == "a" then
+ctrl.l = -1
+elseif key:lower() == "d" then
+ctrl.r = 1
+end
+end)
+mouse.KeyUp:connect(function(key)
+if key:lower() == "w" then
+ctrl.f = 0
+elseif key:lower() == "s" then
+ctrl.b = 0
+elseif key:lower() == "a" then
+ctrl.l = 0
+elseif key:lower() == "d" then
+ctrl.r = 0
+end
+end)
+Fly()
+end)
+
+NormalWalkSpeed.Name = "JumpPower"
+NormalWalkSpeed.Parent = Main
+NormalWalkSpeed.BackgroundColor3 = Color3.new(0.666667, 0.054902, 0.635294)
+NormalWalkSpeed.BorderSizePixel = 0
+NormalWalkSpeed.Position = UDim2.new(0.875269949, 0, 0.235341623, 0)
+NormalWalkSpeed.Size = UDim2.new(0, 80, 0, 38)
+NormalWalkSpeed.Font = Enum.Font.Cartoon
+NormalWalkSpeed.Text = "JumpPower"
+NormalWalkSpeed.TextColor3 = Color3.new(1, 1, 1)
+NormalWalkSpeed.TextSize = 14
+NormalWalkSpeed.MouseButton1Down:connect(function()
+while wait(0.1)do
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 200
+end
+end)
+
+Red1.Name = "Red1"
+Red1.Parent = Main
+Red1.BackgroundColor3 = Color3.new(0, 0, 0)
+Red1.BackgroundTransparency = 1
+Red1.BorderSizePixel = 0
+Red1.Position = UDim2.new(-0.00142120873, 0, 0.0975190252, 0)
+Red1.Size = UDim2.new(0, 181, 0, 43)
+
+RedTeam.Name = "Red Team"
+RedTeam.Parent = Red1
+RedTeam.BackgroundColor3 = Color3.new(0.764706, 0, 0)
+RedTeam.BorderSizePixel = 0
+RedTeam.Position = UDim2.new(0.00280916691, 0, 0.00676095486, 0)
+RedTeam.Size = UDim2.new(0, 181, 0, 42)
+RedTeam.Font = Enum.Font.Cartoon
+RedTeam.Text = "Red Team "
+RedTeam.TextColor3 = Color3.new(1, 1, 1)
+RedTeam.TextSize = 20
+
+Blue1.Name = "Blue1"
+Blue1.Parent = Main
+Blue1.BackgroundColor3 = Color3.new(0, 0, 0)
+Blue1.BackgroundTransparency = 1
+Blue1.BorderSizePixel = 0
+Blue1.Position = UDim2.new(0.360541999, 0, 0.097518988, 0)
+Blue1.Size = UDim2.new(0, 181, 0, 43)
+
+BlueTeam.Name = "Blue Team"
+BlueTeam.Parent = Blue1
+BlueTeam.BackgroundColor3 = Color3.new(0.0705882, 0.105882, 0.764706)
+BlueTeam.BorderSizePixel = 0
+BlueTeam.Position = UDim2.new(0.00154784322, 0, 0.00423576683, 0)
+BlueTeam.Size = UDim2.new(0, 181, 0, 42)
+BlueTeam.Font = Enum.Font.Cartoon
+BlueTeam.Text = "Blue Team"
+BlueTeam.TextColor3 = Color3.new(1, 1, 1)
+BlueTeam.TextSize = 20
+
+LocalPlayerMisc1.Name = "LocalPlayer/Misc1"
+LocalPlayerMisc1.Parent = Main
+LocalPlayerMisc1.BackgroundColor3 = Color3.new(0, 0, 0)
+LocalPlayerMisc1.BackgroundTransparency = 1
+LocalPlayerMisc1.BorderSizePixel = 0
+LocalPlayerMisc1.Position = UDim2.new(0.719437659, 0, 0.0975189954, 0)
+LocalPlayerMisc1.Size = UDim2.new(0, 182, 0, 43)
+
+LocalPlayer.Name = "Local Player"
+LocalPlayer.Parent = LocalPlayerMisc1
+LocalPlayer.BackgroundColor3 = Color3.new(0.654902, 0.0352941, 0.592157)
+LocalPlayer.BorderSizePixel = 0
+LocalPlayer.Position = UDim2.new(0.0111959223, 0, 0.0254739821, 0)
+LocalPlayer.Size = UDim2.new(0, 181, 0, 41)
+LocalPlayer.Font = Enum.Font.Cartoon
+LocalPlayer.Text = "LocalPlayer/Misc"
+LocalPlayer.TextColor3 = Color3.new(1, 1, 1)
+LocalPlayer.TextSize = 20
+
+OtherTps.Name = "Other Tp's"
+OtherTps.Parent = Main
+OtherTps.BackgroundColor3 = Color3.new(0, 0, 0)
+OtherTps.BackgroundTransparency = 1
+OtherTps.BorderSizePixel = 0
+OtherTps.Position = UDim2.new(6.47328416e-05, 0, 0.502917647, 0)
+OtherTps.Size = UDim2.new(0, 181, 0, 41)
+
+OtherTps_2.Name = "OtherTp's"
+OtherTps_2.Parent = OtherTps
+OtherTps_2.BackgroundColor3 = Color3.new(0.639216, 0.109804, 0.686275)
+OtherTps_2.BorderSizePixel = 0
+OtherTps_2.Position = UDim2.new(-0.00231646956, 0, 0.0465452597, 0)
+OtherTps_2.Size = UDim2.new(0, 181, 0, 39)
+OtherTps_2.Font = Enum.Font.Cartoon
+OtherTps_2.Text = "Other Tp's"
+OtherTps_2.TextColor3 = Color3.new(1, 1, 1)
+OtherTps_2.TextSize = 20
+
+AlphaTp.Name = "Alpha Tp"
+AlphaTp.Parent = Main
+AlphaTp.BackgroundColor3 = Color3.new(0.615686, 0.0980392, 0.615686)
+AlphaTp.BorderSizePixel = 0
+AlphaTp.Position = UDim2.new(-0.000714822672, 0, 0.625025153, 0)
+AlphaTp.Size = UDim2.new(0, 87, 0, 39)
+AlphaTp.Font = Enum.Font.Cartoon
+AlphaTp.Text = "Alpha Tp"
+AlphaTp.TextColor3 = Color3.new(1, 1, 1)
+AlphaTp.TextSize = 18
+AlphaTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(847.855225, 75.2000046, 2156.36279)
+end)
+
+BravoTp.Name = "Bravo Tp"
+BravoTp.Parent = Main
+BravoTp.BackgroundColor3 = Color3.new(0.615686, 0.0980392, 0.615686)
+BravoTp.Position = UDim2.new(0.143456951, 0, 0.625025094, 0)
+BravoTp.Size = UDim2.new(0, 87, 0, 39)
+BravoTp.Font = Enum.Font.Cartoon
+BravoTp.Text = "Bravo Tp"
+BravoTp.TextColor3 = Color3.new(1, 1, 1)
+BravoTp.TextSize = 18
+BravoTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1486.97876, 100.599968, 122.98822)
+end)
+
+CharlieTp.Name = "Charlie Tp"
+CharlieTp.Parent = Main
+CharlieTp.BackgroundColor3 = Color3.new(0.615686, 0.0980392, 0.615686)
+CharlieTp.BorderSizePixel = 0
+CharlieTp.Position = UDim2.new(0, 0, 0.75, 0)
+CharlieTp.Size = UDim2.new(0, 181, 0, 38)
+CharlieTp.Font = Enum.Font.Cartoon
+CharlieTp.Text = "Charlie Tp"
+CharlieTp.TextColor3 = Color3.new(1, 1, 1)
+CharlieTp.TextSize = 18
+CharlieTp.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2825.88037, 146.199982, 548.950562)
+end)
+
+ExitButton.Name = "Exit Button"
+ExitButton.Parent = Main
+ExitButton.BackgroundColor3 = Color3.new(1, 1, 1)
+ExitButton.BackgroundTransparency = 1
+ExitButton.BorderSizePixel = 0
+ExitButton.Position = UDim2.new(0.929056704, 0, -0.0023915444, 0)
+ExitButton.Size = UDim2.new(0, 46, 0, 38)
+ExitButton.Font = Enum.Font.Cartoon
+ExitButton.Text = "X"
+ExitButton.TextColor3 = Color3.new(1, 1, 1)
+ExitButton.TextSize = 40
+ExitButton.MouseButton1Down:connect(function()
+OpenFrame.Visible = true
+Main.Visible = false
+end)
+
+
+OpenFrame.Name = "Open Frame"
+OpenFrame.Parent = ScreenGui
+OpenFrame.BackgroundColor3 = Color3.new(0.0313726, 0.0784314, 0.756863)
+OpenFrame.Position = UDim2.new(0, 0, 0.555776894, 0)
+OpenFrame.Size = UDim2.new(0, 100, 0, 34)
+
+Open.Name = "Open"
+Open.Parent = OpenFrame
+Open.BackgroundColor3 = Color3.new(0.0313726, 0.0784314, 0.756863)
+Open.BorderSizePixel = 0
+Open.Position = UDim2.new(0, 0, 0.205882356, 0)
+Open.Size = UDim2.new(0, 93, 0, 20)
+Open.Font = Enum.Font.Cartoon
+Open.Text = "Open"
+Open.TextColor3 = Color3.new(1, 1, 1)
+Open.TextSize = 30
+Open.MouseButton1Down:connect(function()
+Main.Visible = true
+OpenFrame.Visible = false
+end)
+--Prints
+print(".")
+print(".")
+print(".")
+print("-----------------------------------------------")
+print("GUI made by Toxic :DD")
+print("Press e to fly")
+print("Press N to toggle on/off Return")
+print("Still a WIP GUI")
+print("Have Fun!!")
+print("-----------------------------------------------")
+print(".")
+print(".")
+print(".")
+--Return Script
+local stationaryrespawn = false
+local needsrespawning = false
+local haspos = false
+local pos = CFrame.new()
+
+local Respawning = Instance.new("ScreenGui")
+local RespawningButton = Instance.new("TextButton")
+
+Respawning.Name = "Respawning"
+Respawning.Parent = game.CoreGui
+
+
+
+RespawningButton.Name = "RespawningButton"
+RespawningButton.Parent = Respawning
+RespawningButton.BackgroundColor3 = Color3.new(255, 222, 0)
+RespawningButton.BackgroundTransparency = 0.30000001192093
+RespawningButton.BorderSizePixel = 0
+RespawningButton.Position = UDim2.new(0.0391057241, 0, 0.826617789, 0)
+RespawningButton.Size = UDim2.new(0, 83, 0, 34)
+RespawningButton.Font = Enum.Font.SourceSans
+RespawningButton.Text = "Returning OFF"
+RespawningButton.TextColor3 = Color3.new(1, 1, 1)
+RespawningButton.TextSize = 20
+RespawningButton.TextScaled = true
+RespawningButton.Draggable = true
+
+
+
+
+function StatRespawn(inputObject, gameProcessedEvent)
+    if inputObject.KeyCode == Enum.KeyCode.N and gameProcessedEvent == false then        
+stationaryrespawn = not stationaryrespawn
+    end
+end
+
+
+
+
+
+
+game:GetService("UserInputService").InputBegan:connect(StatRespawn)
+
+
+
+game:GetService('RunService').Stepped:connect(function()
+
+
+if stationaryrespawn == true and game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+if haspos == false then
+pos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+haspos = true
+end
+
+needsrespawning = true
+end
+
+
+if needsrespawning == true then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end
+
+
+if stationaryrespawn == true then 
+RespawningButton.Text = "Returning ON"
+else
+RespawningButton.Text = "Returning OFF"
+end
+
+
+end)
+
+game.Players.LocalPlayer.CharacterAdded:connect(function()
+wait(0.6)
+needsrespawning = false
+haspos = false
+end)
+--Press F9 
+--Credits to Aidez for the Return script!!
+--GUI Made By Toxic :DD
+end)
+
 --Credits
 local Credits = Window:NewTab("Credits")
 local CreditsSection = Credits:NewSection("Credits to Barney -- Barney#3785")
