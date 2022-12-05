@@ -1281,6 +1281,10 @@ GamesSection: NewButton("Lumber tycoon 2", "lots of stuff", function()
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/lazarBeast55/TranZit-Gui/main/TranZit%20GUI'),true))()
 end)
 
+GamesSection: NewButton("Tankery", "lots of stuff", function()
+    game.Workspace.Events.BuyPaint:FireServer({"Scrapyard", -50})
+end)
+
 --Credits
 local Credits = Window:NewTab("Credits")
 local CreditsSection = Credits:NewSection("Credits to Barney -- Barney#3785")
