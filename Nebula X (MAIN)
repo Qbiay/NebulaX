@@ -1281,10 +1281,6 @@ GamesSection: NewButton("Lumber tycoon 2", "lots of stuff", function()
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/lazarBeast55/TranZit-Gui/main/TranZit%20GUI'),true))()
 end)
 
-GamesSection: NewButton("Tankery", "lots of stuff", function()
-    game.Workspace.Events.BuyPaint:FireServer({"Scrapyard", -50})
-end)
-
 GamesSection: NewButton("MadCity chapter 2 (has a key system)", "lots of stuff", function()
     loadstring(game:HttpGet("https://pastebinp.com/raw/qy8QQATH", true))()
 end)
