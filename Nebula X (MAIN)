@@ -1820,6 +1820,38 @@ end)
 --GUI Made By Toxic :DD
 end)
 
+
+GamesSection: NewButton("Goal Clicker", "idk tbf", function()
+    _G. autoKick = true;
+_G. autoClick = true;
+_G. autoRebirth = true;
+spawn(function()
+while _G. autoKick == true do
+game:GetService("Players").LocalPlayer.PlayerGui.RemoteEvents.Start:FireServer()
+wait()
+end
+end)
+
+spawn(function()
+while _G. autoClick == true do
+game:GetService("Players").LocalPlayer.PlayerGui.RemoteEvents.Click:FireServer()
+wait()
+end
+end)
+
+spawn(function()
+while _G. autoRebirth == true do
+local args = {
+    [1] = "RebirthReset"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+
+wait()
+end
+end)
+end)
+
 --Credits
 local Credits = Window:NewTab("Credits")
 local CreditsSection = Credits:NewSection("Credits to Barney -- Barney#3785")
