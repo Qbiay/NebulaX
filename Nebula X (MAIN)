@@ -210,10 +210,6 @@ end)
 local Games = Window:NewTab("Games")
 local GamesSection = Games:NewSection("Games stuff")
 
-GamesSection: NewButton("No scope arcade", "aimbot etc", function()
-    loadstring(game: HttpGet("https://raw.githubusercontent.com/Kitzoon/Rogue-Hub/main/Main.lua", true))()
-end)
-
 GamesSection: NewButton("Combat Warriors", "bunch of stuff", function()
     loadstring(game: HttpGet("https://raw.githubusercontent.com/SussyImposterRed/Scripts/main/NOVA_HUB_SOURCE"))()
 end)
